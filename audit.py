@@ -37,3 +37,10 @@ def get_large_clusters(clusters):
         if cluster['nodes'] > 10:
             result.append(cluster['name'])
     return result
+
+def total_nodes(clusters):
+    total = 0
+    for cluster in clusters:
+        total += cluster["nodes"]
+    return total
+
