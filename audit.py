@@ -4,6 +4,7 @@
   get_large_clusters()
   total_nodes()
   count_services()
+  find_unhealthy_services()
 '''
 clusters = [
     {
@@ -33,6 +34,7 @@ def get_cluster_names(clusters):
 
 def get_large_clusters(clusters):
     result = []
+
     for cluster in clusters:
         if cluster['nodes'] > 10:
             result.append(cluster['name'])
@@ -40,12 +42,14 @@ def get_large_clusters(clusters):
 
 def total_nodes(clusters):
     total = 0
+
     for cluster in clusters:
         total += cluster["nodes"]
     return total
 
 def count_services(clusters):
     count = 0
+
     for cluster in clusters:
         for service in cluster['services']:
             count += 1
@@ -54,6 +58,7 @@ def count_services(clusters):
 
 def find_unhealthy_services(clusters):
     result = []
+    
     for cluster in clusters:
         for service in cluster['services']:
             if service['status'] == 'stopped':
@@ -62,5 +67,17 @@ def find_unhealthy_services(clusters):
                 ))
     return result
 
+def generate_report(clusters):
+    cluster_count = len(clusters)
+    node_count = total_nodes(clusters)
+    service_count = count_services(clusters)
+    large_clusters = get_large_clusters(clusters)
+    unhealthy_services = find_unhealthy_services(clusters)
 
+    return f"""Cluster Audit Report
+    ====================
 
+    Clusters: {cluster_count}
+    Total Nodes: {node_count}
+    Total Services: {service_count}
+    """
