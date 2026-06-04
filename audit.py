@@ -49,5 +49,18 @@ def count_services(clusters):
     for cluster in clusters:
         for service in cluster['services']:
             count += 1
-            
+
     return count
+
+def find_unhealthy_services(clusters):
+    result = []
+    for cluster in clusters:
+        for service in cluster['services']:
+            if service['status'] == 'stopped':
+                result.append((cluster["name"],
+                service["name"]
+                ))
+    return result
+
+
+
