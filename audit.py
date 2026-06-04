@@ -44,3 +44,10 @@ def total_nodes(clusters):
         total += cluster["nodes"]
     return total
 
+def count_services(clusters):
+    count = 0
+    for cluster in clusters:
+        for service in cluster['services']:
+            count += 1
+            
+    return count
