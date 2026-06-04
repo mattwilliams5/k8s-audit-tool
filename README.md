@@ -1,6 +1,6 @@
 # Kubernetes Audit Tool
 
-Learning project to improve Python skills while building a Kubernetes-style cluster auditing tool.
+Python skills refreshener while building a Kubernetes-style cluster auditing tool.
 
 Goals:
 - Python Refresher
@@ -8,5 +8,22 @@ Goals:
 - Build reporting functions
 - Add testing
 - Add JSON file support
+- Add Kubernetes API integration
+- Add AI-generated audit summaries
+
+## Current Features
+
+- Get cluster names
+- Find large clusters
+- Count total nodes
+- Count services
+- Detect unhealthy services
+- Generate basic audit reports
+
+## Next Steps
+
+- Improve report formatting
+- Load cluster data from JSON
+- Add pytest unit tests
 - Add Kubernetes API integration
 - Add AI-generated audit summaries
