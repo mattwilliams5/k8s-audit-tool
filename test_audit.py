@@ -43,7 +43,7 @@ def test_total_nodes():
 def test_count_services():
     assert count_services(clusters) == 3
 
-def test_find_unhealthy_nodes():
+def test_find_unhealthy_services():
     assert find_unhealthy_services(clusters) == [('prod-west', 'vault')]
 
 def test_load_clusters():
