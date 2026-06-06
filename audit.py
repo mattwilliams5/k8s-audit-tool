@@ -1,3 +1,5 @@
+import json
+
 '''
   Audit.py calls the following functions
   get_cluster_names()
@@ -81,3 +83,8 @@ def generate_report(clusters):
     Total Nodes: {node_count}
     Total Services: {service_count}
     """
+
+def load_clusters(filename):
+    with open(filename) as file:
+        clusters = json.load(file)
+        return clusters
