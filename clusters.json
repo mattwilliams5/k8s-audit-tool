@@ -1,0 +1,26 @@
+[
+    {
+      "name": "prod-east",
+      "nodes": 25,
+      "services": [
+        {
+          "name": "vault",
+          "status": "running"
+        },
+        {
+          "name": "consul",
+          "status": "running"
+        }
+      ]
+    },
+    {
+      "name": "prod-west",
+      "nodes": 18,
+      "services": [
+        {
+          "name": "vault",
+          "status": "stopped"
+        }
+      ]
+    }
+  ]

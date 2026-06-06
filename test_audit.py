@@ -4,6 +4,7 @@ from audit import (
     total_nodes,
     count_services,
     find_unhealthy_services,
+    load_clusters,
 )
 
 clusters = [
@@ -42,5 +43,9 @@ def test_total_nodes():
 def test_count_services():
     assert count_services(clusters) == 3
 
-def test_find_unhealthy_nodes():
+def test_find_unhealthy_services():
     assert find_unhealthy_services(clusters) == [('prod-west', 'vault')]
+
+def test_load_clusters():
+    clusters = load_clusters("clusters.json")
+    assert len(clusters) == 2
